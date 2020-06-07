@@ -17,6 +17,8 @@ const buildControls = (props) => (
                 label={ctrl.label}
                 //TODO Why not props.ingredientAdded(ctrl.type) right away with no arrow function ?
                 added={() => props.ingredientAdded(ctrl.type)}
+                removed={() => props.ingredientRemoved(ctrl.type)}
+                disabled={props.disabled[ctrl.type]}
             />
         ))}
     </div>
