@@ -30,6 +30,7 @@ class BurgerBuilder extends Component {
         },
         totalPrice : 4,
         purchasable: false,
+        purchasing: false
 
 
     }
@@ -97,6 +98,16 @@ class BurgerBuilder extends Component {
 
     }
 
+    // Won't work because of the syntax it cannot refer to this
+    // purchaseHandler () {
+    //     this.setState( {purchasing: true});
+    // }
+
+     purchaseHandler = () => {
+         this.setState( {purchasing: true});
+     }
+
+
 
     render() {
         console.log(this.state);
@@ -112,7 +123,7 @@ class BurgerBuilder extends Component {
 
         return (
             <Aux>
-                    <Modal>
+                    <Modal show={this.state.purchasing}>
                         <OrderSummary ingredients={this.state.ingredients}/>
                     </Modal>
                     <Burger ingredients={this.state.ingredients} />
@@ -122,6 +133,7 @@ class BurgerBuilder extends Component {
                     disabled = {disabledInfo}
                     //if it's not!
                     purchasable={!this.state.purchasable}
+                    ordered={this.purchaseHandler}
                     price = {this.state.totalPrice}
                     />
             </Aux>
