@@ -12,7 +12,10 @@ const sideDrawer = (props) => {
 
         <div className={classes.SideDrawer}>
             <Backdrop/>
-            <Logo/>
+            <div className={classes.Logo}>
+                <Logo/>
+            </div>
+
             <nav>
                 <NavigationItems/>
             </nav>
